@@ -7,5 +7,6 @@ class Player:
     def move(self):
         pass
 
-    # def choose_gesture(self):
-    # chosen_gesture= input    
+    def choose_gesture(self):
+        pass
+
