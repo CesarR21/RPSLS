@@ -1,3 +1,7 @@
+from ai import AI
+from human import Human
+
+
 
 
 
@@ -11,6 +15,14 @@ class Game:
         print("welcome to the game")
         pass
 
+    def add_player(self):
+        human_player_1 = Human('Player 1')
+        print(f"Hello, {human_player_1.name}.")
+        human_player_2 = Human('Player 2')
+        print(f'Hello, {human_player_2.name}. ')
+        computer_player_1 = AI('computer 1')
+        print(f'Hello, {computer_player_1.name}. ')
+        # computer_player_2 = AI('computer 2')
 
 
 
@@ -21,33 +33,8 @@ class Game:
 
 
 
-    # def converted_move(number):
-    #     if  number == 1:
-    #         return "rock"
-    #     elif number == 2:
-    #         return "paper"
-    #     elif number== 3:
-    #         return "scissors"
-    #     elif number == 4:
-    #         return "lizard"
-    #     elif number ==5:
-    #         return "spock"
-    # while 1:
-    #     random_number = random.randint(1,5)
-    #     human_geasture= converted_move(random_number)
-    #     ai_geasture= converted_move(random_number)
-    #     geasture_choice= input(str("select rock/paper/scissors/lizard/spock:"))
-    # try:
-    #         print("you selected: ",human_geasture)
-    #         print("you selected:",ai_geasture)
-    #         print("** game outcome**")
-    #         print([ai_geasture][human_geasture])
-    #         print("")
 
-    # except:
-        
-    #     print("invalid input")
+
 
    
- 
 

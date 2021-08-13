@@ -1,12 +1,13 @@
 class Player:
-    def __init__(self):
-        self.point=""
-        self.score=""
-        self.geastures=["rk","pr","sr","lz","sp"]
+    def __init__(self,name):
+        self.point= ""
+        self.score= ""
+        self.geastures= ["rk","pr","sr","lz","sp"]
+        self.name = name
 
-        self.point=""
-        self.score=""
-        self.geastures=["rck","ppr","scrs","lzrd","spck"] 
+        self.point= ""
+        self.score= ""
+        self.geastures= ["rck","ppr","scrs","lzrd","spck"] 
         self.outcomes = {
             "rock":{"rock":"draw","paper":"loss","scissors":"win","lizard":"win","spock":"loss"},
             "paper":{"rock":"loss","paper":"draw","scissors":"loss","lizard":"loss","spock":"win"},
