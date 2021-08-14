@@ -4,3 +4,6 @@ import random
 class AI(Player):
     def __init__(self,name):
         super().__init__(name)
+
+    def ai_gesture(self):
+        print(random.choice(self.geastures))

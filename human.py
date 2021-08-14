@@ -11,9 +11,8 @@ class Human(Player):
         gesture3 = self.geastures[2]
         gesture4 = self.geastures[3]
         gesture5 = self.geastures[4]
-        player_input = input('please choose a gesture')
-        print(player_input)
-        if player_input == (1):
+        player_input = int(input('please choose a gesture'))
+        if player_input == 1:
             print(f'{gesture1}')
         elif player_input == 2:
             print(gesture2)
