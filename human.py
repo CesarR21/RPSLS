@@ -13,15 +13,15 @@ class Human(Player):
         gesture5 = self.geastures[4]
         player_input = int(input(f'please choose a gesture({self.geastures})'))
         if player_input == 1:
-            print(f'{gesture1}')
+            print(f'{self.name} chose {gesture1}')
         elif player_input == 2:
-            print(gesture2)
+            print(f'{self.name} chose {gesture2}')
         elif player_input == 3:
-            print(gesture3) 
+            print(f'{self.name} chose {gesture3}') 
         elif player_input == 4:
-            print(gesture4)
+            print(f'{self.name} chose {gesture4}')
         elif player_input == 5:
-            print(gesture5)
+            print(f'{self.name} chose {gesture5}')
 
 
 

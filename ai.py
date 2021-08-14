@@ -6,4 +6,4 @@ class AI(Player):
         super().__init__(name)
 
     def ai_gesture(self):
-        print(random.choice(self.geastures))
+        print(f'{self.name} chose {random.choice(self.geastures)}')

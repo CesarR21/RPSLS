@@ -4,14 +4,27 @@ class Player:
         self.score= ""
         self.name = name
         self.geastures= ["rock","papr","scissors","lizrd","spock"] 
-        self.outcomes = {
-            "rock":{"rock":"draw","paper":"loss","scissors":"win","lizard":"win","spock":"loss"},
-            "paper":{"rock":"loss","paper":"draw","scissors":"loss","lizard":"loss","spock":"win"},
-            "scissors":{"rock":"loss","paper":"win","scissors":"draw","lizard":"win","spock":"loss"},
-            "lizard": {"rock":"loss","paper":"win","scissors":"loss","lizard":"draw","spock":"win"},
-            "spock":{"rock":"win","paper":"loss","scissors":"win","lizard":"loss","spock":"draw"}
-         
-    }
+        
+  
+    def determine_winner(self):
+        choices = self.geastures
+    
+        
+        
+        win = {
+            choices[0]: [choices[2]], 
+            choices[1]: [choices[0]], 
+            choices[2]: [choices[1]],
+            choices[0]: [choices[4]],
+            choices[4]: [choices[5]],
+            choices[4]: [choices[2]],
+            choices[2]: [choices[3]],
+            choices[3]: [choices[1]],
+            choices[1]: [choices[4]],
+            choices[4]: [choices[0]],
+        }
+        defeat = win[choices]
+        pass
 
     
 
