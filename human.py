@@ -4,9 +4,6 @@ class Human(Player):
     def __init__(self,name):
         super().__init__(name)
         
-
-
-
         
     def choose_gesture(self):       
         gesture1 = self.geastures[0]
@@ -15,9 +12,9 @@ class Human(Player):
         gesture4 = self.geastures[3]
         gesture5 = self.geastures[4]
         player_input = input('please choose a gesture')
-        f"{player_input}"
-        if player_input == 1:
-            print(gesture1)
+        print(player_input)
+        if player_input == (1):
+            print(f'{gesture1}')
         elif player_input == 2:
             print(gesture2)
         elif player_input == 3:
@@ -27,6 +24,12 @@ class Human(Player):
         elif player_input == 5:
             print(gesture5)
 
+
+
+
+
+
+        
 
 
             

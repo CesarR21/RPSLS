@@ -2,12 +2,8 @@ class Player:
     def __init__(self,name):
         self.point= ""
         self.score= ""
-        self.geastures= ["rk","pr","sr","lz","sp"]
         self.name = name
-
-        self.point= ""
-        self.score= ""
-        self.geastures= ["rck","ppr","scrs","lzrd","spck"] 
+        self.geastures= ["rock","papr","scissors","lizrd","spock"] 
         self.outcomes = {
             "rock":{"rock":"draw","paper":"loss","scissors":"win","lizard":"win","spock":"loss"},
             "paper":{"rock":"loss","paper":"draw","scissors":"loss","lizard":"loss","spock":"win"},
@@ -17,9 +13,7 @@ class Player:
          
     }
 
-    def move(self):
-        pass
+    
 
-    def choose_gesture(self):
-        pass
+    
 
