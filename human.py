@@ -1,4 +1,5 @@
 from player import Player
+from random import randint
 
 class Human(Player):
     def __init__(self,name):
@@ -22,6 +23,10 @@ class Human(Player):
             print(f'{self.name} chose {gesture4}')
         elif player_input == 5:
             print(f'{self.name} chose {gesture5}')
+
+    
+
+       
 
 
 
