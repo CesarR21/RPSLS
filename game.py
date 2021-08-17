@@ -1,103 +1,156 @@
+from player import Player
 from ai import AI
 from human import Human
 import random
 
 
-Cchoice=["rock","paper","scissors","lizard","spock"]
-while True:
+human_player_1 = Human('Player 1')
     
-    youwin,computerwin=0,0
-    for i in range(1,6):
-            print('this is a basic game of rock paper scissors,with a twist!')
-            print('this version includes two extra choices lizard and Spock')
-            print("Round",1, "Start:")
-            print("Please select any one option:")
-            print("1.Rock","2.Paper","3.Scissors", "4.lizard","5.Spock",sep="\n")
-            Yourchoice=int(input())
-            if Yourchoice==1:
-                print("You select Rock")
-                Yourchoice="Rock"
-            elif Yourchoice==2:
-                print("You select paper")
-            elif Yourchoice==3:
-                print("You select scissors")
-            elif Yourchoice==4:
-                print("You select Lizard")
-            elif Yourchoice==5:
-                print("You Seelect Spock")
-            else:
-                 print("Invalid Choice")
-                 break
-            Computerchoice=random.choice(Cchoice)
-            print("computer select:", Computerchoice)
+# human_player_2 = Human('Player 2')
+# human_player_2
+computer_player_1 = AI('computer 1')
+ai_choice = random.choice(computer_player_1.geastures)
+human_choice = int(input(f'please choose a gesture({human_player_1.geastures})'))
+human_player_1.point = 0
+
+
+
+class Game:
+
+    def __init__(self):
+        pass
+
+
+    def run_game(self):
+        print("welcome to Rock,Paper,Scisors...featuring Lizard and Spock!")
+
+        print('this is a basic game of rock paper scissors,with a twist!')
+        print('this version includes two extra choices')
+        print('the controls are as follows:')
+        print('1 is rock','2 is paper','3 is scissors','4 is lizard','5 is spock')
         
 
-            if Yourchoice==Computerchoice:
-                    youwin+=1
-                    computerwin+=1
-                    print("this Round Is a Tie:")
-            elif (Yourchoice=="Paper" and Computerchoice=="Rock") or (Yourchoice=="Rock" and Computerchoice=="Scissors") or(Yourchoice=="Scissors" and Computerchoice=="Paper"):
-                (Yourchoice=="lizard" and Computerchoice=="paper") or (Yourchoice=="Rock" and Computerchoice=="lizard") or (Yourchoice=="Scissors"and Computerchoice=="lizard")  
-                (Yourchoice=="Spock"and Computerchoice=="lizard") or (Yourchoice=="rock" and Computerchoice=="Spock") or (Yourchoice=="Paper"and Computerchoice=="Spock")
-                youwin+1
-                print("You win this Round")
-            else:
-                    computerwin+1
-                    print("Computer win this Round")
 
-
-
-            if youwin>computerwin:
-                print("You win the game") 
-                print("Score is:", "Your score:",youwin,"Computer score:", computerwin,sep=" ")
-            elif computerwin>youwin:
-                print("You Lose the game. Computer win the game:")
-                print("Score is:","Your score:", youwin, "Computer score:",computerwin,sep=" ")
-            else:
-               
-
-                print("Score is:", "Your score:",youwin,",Computer score:",computerwin,sep=" ")
-            user_choice=input("want to Play again?(Yes/Exit)")
-            if user_choice=='yes' or user_choice=='Yes' or user_choice=='YES':
-                continue
-
-            else:
-
-                break
-
-                
-
-
-
-                
-
-     
-            
-    
-
-
-
-
+    def add_player(self):
+        print(f"Hello, {human_player_1.name}.")
+        print(f'Hello, {computer_player_1.name}.')
+       
         
-    
-      
 
+    def choose_gesture(self,):       
+        gesture1 = human_player_1.geastures[0]
+        gesture2 = human_player_1.geastures[1]
+        gesture3 = human_player_1.geastures[2]
+        gesture4 = human_player_1.geastures[3]
+        gesture5 = human_player_1.geastures[4]
+     #    human_choice = int(input(f'please choose a gesture({human_player_1.geastures})'))
+        if human_choice == 1:
+            print(f'{human_player_1.name} chose {gesture1}')
+        elif human_choice == 2:
+            print(f'{human_player_1.name} chose {gesture2}')
+        elif human_choice == 3:
+            print(f'{human_player_1.name} chose {gesture3}') 
+        elif human_choice == 4:
+            print(f'{human_player_1.name} chose {gesture4}')
+        elif human_choice == 5:
+            print(f'{human_player_1.name} chose {gesture5}')
+           
+       
+        
+    def ai_choice(self):
+          ai_choice
+          print(f'{computer_player_1.name} chose {ai_choice} ')
+          
+        
         
     #     print(f'Hello, {human_player_2}. ')
     #creating the actual 1 v 1, where we pit one player against the other
     # we will establish which esture beats waht and how that will make the winner gain points
     #
 
+   
+              
 
-    
-    
+    def choose_winner(self,):
+     ties=0
+     humanwins=0
+     aiwins=0
+     print(f'{computer_player_1.name} chose {ai_choice} ')
+     if human_choice == 1 and ai_choice == computer_player_1.geastures[2]:
+      humanwins += 1
+      print(f'{human_player_1.name}' 'wins!')
+     elif human_choice == 3 and ai_choice == computer_player_1.geastures[0]:
+          aiwins += 1
+          print("computer wins")
+     elif human_choice == 2 and ai_choice == computer_player_1.geastures[0]:
+          humanwins += 1
+          print(f'{human_player_1.name}' 'wins')
+     elif human_choice == 1 and ai_choice == computer_player_1.geastures[1]:
+          aiwins += 1
+          print('computer wins')
+     elif human_choice == 2 and ai_choice == computer_player_1.geastures[3]:
+          aiwins += 1
+          print('computer wins')  
+     elif human_choice == 2 and ai_choice == computer_player_1.geastures[2]:
+          humanwins += 1
+          print(f'{human_player_1.name}' 'wins')
+     elif human_choice == 1 and ai_choice == computer_player_1.geastures[3]:
+          humanwins += 1
+          print(f'{human_player_1.name}' 'wins')               
+     elif human_choice == 4 and ai_choice == computer_player_1.geastures[1]:
+          humanwins += 1
+          print(f'{human_player_1.name}' 'wins')
+     elif human_choice == 4 and ai_choice == computer_player_1.geastures[4]:
+          humanwins += 1
+          print(f'{human_player_1.name}' 'wins')
+     elif human_choice == 3 and ai_choice == computer_player_1.geastures[4]:
+          aiwins += 1
+          print('computer wins')
+     elif human_choice == 4 and ai_choice == computer_player_1.geastures[0]:
+          aiwins += 1
+          print('computer wins')
+     elif human_choice == 4 and ai_choice == computer_player_1.geastures[3]:
+          humanwins += 1
+          print(f'{human_player_1.name}' 'wins!')
+     elif human_choice == 5 and ai_choice == computer_player_1.geastures[0]:
+          humanwins += 1
+          print(f'{human_player_1.name}' 'wins')    
+     elif human_choice == 5 and ai_choice == computer_player_1.geastures[2]:
+          humanwins += 1
+          print(f'{human_player_1.name}' 'wins')
+     elif human_choice == 5 and ai_choice == computer_player_1.geastures[1]:
+          aiwins += 1
+          print('computer wins')
+     elif human_choice == 4 and ai_choice == computer_player_1.geastures[2]:
+          aiwins += 1
+          print('computer wins')   
+     elif human_choice == 2 and ai_choice == computer_player_1.geastures[4]:
+          humanwins += 1
+          print(f'{human_player_1.name}' 'wins')
+     elif human_choice == 1 and ai_choice == computer_player_1.geastures[4]:
+          aiwins += 1
+          print('computer wins') 
+     else: ties += 1
+     print('its a tie')
+      
+     print ("Wins: " + str(humanwins) + " " "Ties" +str(ties) + " " "Losses" + str(aiwins))
+     
 
-    
-        
-        
-    # print(f'Hello, {computer_player_1}. ')
+
+       
+     
+     
+
+       
+       
+       
+       
 
         
+            
+        
+            
+       
         
     
         
