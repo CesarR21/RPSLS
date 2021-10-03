@@ -1,9 +1,18 @@
 from player import Player
 import random
 
-class AI(Player):
-    def __init__(self,name):
-        super().__init__(name)
+class Ai(Player):
+    def __init__(self):
+        super().__init__()
+        self.set_name()
 
-    def ai_gesture(self):
-        print(f'{self.name} chose {random.choice(self.geastures)}')
+    def set_name(self):
+        self.name = 'Player 2'
+
+    def choose_gesture(self):
+        random = Random()
+        # self.chosen_gesture =
+        return self.gesture_list[random.randint(0,4)]
+
+    def set_score(self):
+        self.score += 1
