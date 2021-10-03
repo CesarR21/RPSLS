@@ -23,6 +23,9 @@ class Human(Player):
         elif player_input == 5:
             print(f'{self.name} chose {gesture5}')
         else: print('wrong choice! try again.')
+            
+    def set_score(self):
+        self.score += 1
 
 
 
