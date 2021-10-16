@@ -1,12 +1,4 @@
-from human import Human
-from game import Game 
+from game import Game
 
-rpsls= Game()
-
-rpsls.run_game()
-rpsls.add_player()
-rpsls.choose_gesture()
-rpsls.choose_winner()
-
-
-
+game1 = Game()
+game1.run_game()

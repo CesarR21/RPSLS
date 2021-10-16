@@ -1,5 +1,5 @@
 from player import Player
-import random
+from random import Random
 
 class Ai(Player):
     def __init__(self):
@@ -16,3 +16,5 @@ class Ai(Player):
 
     def set_score(self):
         self.score += 1
+
+    

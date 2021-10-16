@@ -1,40 +1,24 @@
 from player import Player
 
 class Human(Player):
-    def __init__(self,name):
-        super().__init__(name)
+    def __init__(self):
+        super().__init__()
+        self.set_name()
         
-        
-    def choose_gesture(self):       
-        gesture1 = self.geastures[0]
-        gesture2 = self.geastures[1]
-        gesture3 = self.geastures[2]
-        gesture4 = self.geastures[3]
-        gesture5 = self.geastures[4]
-        player_input = int(input(f'please choose a gesture({self.geastures})'))
-        if player_input == 1:
-            print(f'{self.name} chose {gesture1}')
-        elif player_input == 2:
-            print(f'{self.name} chose {gesture2}')
-        elif player_input == 3:
-            print(f'{self.name} chose {gesture3}') 
-        elif player_input == 4:
-            print(f'{self.name} chose {gesture4}')
-        elif player_input == 5:
-            print(f'{self.name} chose {gesture5}')
-        else: print('wrong choice! try again.')
-            
+
+    def set_name(self):
+        self.name = input("what's your name? ")
+
+    def choose_gesture(self):
+        validation = False
+        while validation is False:
+            user_choice = int(input(f'\n{self.name} Choose your gesture: Type "1" for Rock, "2" for Paper, "3" for Scissors, "4" for Lizard or "5" for Spock: ')) -1
+            if user_choice == 0 or user_choice == 1 or user_choice == 2 or user_choice == 3 or user_choice == 4:
+                validation = True
+            else:
+                print('Please choose a number between 1 - 5')
+
+        return self.gesture_list[user_choice]
+
     def set_score(self):
         self.score += 1
-
-
-
-
-
-
-        
-
-
-            
-        
-

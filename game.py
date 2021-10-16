@@ -1,211 +1,101 @@
-from player import Player
-from ai import AI
 from human import Human
-import random
-
-
-human_player_1 = Human('Player 1')
-    
-# human_player_2 = Human('Player 2')
-# human_player_2
-computer_player_1 = AI('computer 1')
-ai_choice = random.choice(computer_player_1.geastures)
-human_choice = int(input(f'please choose a gesture({human_player_1.geastures})'))
-gamerounds=0
-humanwins=0
-aiwins=0
-
-
+from ai import Ai
 
 
 class Game:
     def __init__(self):
-        self.game_status = True
+        self.player_one = Human()
+        self.player_two = None
+
+
     def run_game(self):
-        print("welcome to Rock,Paper,Scisors...featuring Lizard and Spock!")
-
-        print('this is a basic game of rock paper scissors,with a twist!')
-        print('this version includes two extra choices')
-        print('the controls are as follows:')
-        print('1 is rock','2 is paper','3 is scissors','4 is lizard','5 is spock')
-    def add_player(self):
-        print(f"Hello, {human_player_1.name}.")
-        print(f'Hello, {computer_player_1.name}.')
-       
-    def choose_gesture(self,):       
-        gesture1 = human_player_1.geastures[0]
-        gesture2 = human_player_1.geastures[1]
-        gesture3 = human_player_1.geastures[2]
-        gesture4 = human_player_1.geastures[3]
-        gesture5 = human_player_1.geastures[4]
-     #    human_choice = int(input(f'please choose a gesture({human_player_1.geastures})'))
-        if human_choice == 1:
-            print(f'{human_player_1.name} chose {gesture1}')
-        elif human_choice == 2:
-            print(f'{human_player_1.name} chose {gesture2}')
-        elif human_choice == 3:
-            print(f'{human_player_1.name} chose {gesture3}') 
-        elif human_choice == 4:
-            print(f'{human_player_1.name} chose {gesture4}')
-        elif human_choice == 5:
-            print(f'{human_player_1.name} chose {gesture5}')
-           
-       
-        
-    def ai_choice(self):
-          ai_choice
-          print(f'{computer_player_1.name} chose {ai_choice} ')
-          
-        
+        self.welcome_message()
+        self.display_rules()
+        self.game_type()
+        self.game_rounds()
+        self.get_game_winner()
         
         
 
+    def welcome_message(self):
+        print('Welcome to Rock, Paper, Scissors, Lizard, Spock game!')
 
-        
+    def display_rules(self):
+        print('\nEach player choses one gesture from the list\n Rock crushes Scissors\n Scissors cuts Paper\n Paper covers Rock\n Rock crushes Lizard\n Lizard poisons Spock\n Spock smashes Scissors\n Scissors decapitates Lizard\n Lizard eats Paper\n Paper disproves Spock\n Spock vaporizes Rock')
 
-    #     print(f'Hello, {human_player_2}. ')
-    #creating the actual 1 v 1, where we pit one player against the other
-    # we will establish which esture beats waht and how that will make the winner gain points
-    #
+    def game_type(self):
+        validation = False
+        while validation is False:
+            user_choice = int(input('\nPlay a single player game or two player game? type "1" for single and "2" for multi: '))
+            if user_choice == 1 or user_choice == 2:
+                validation = True
+            else:
+                print('Please choose either "1" or "2"')
+        if user_choice == 1:
+            self.player_two = Ai()
+        else:
+            self.player_two = Human()
 
-   
-              
+    def game_rounds(self):
+        while self.player_one.score < 2 and self.player_two.score < 2:
+            p1_gesture = self.player_one.choose_gesture()
+            p2_gesture = self.player_two.choose_gesture()
+            print(f'{self.player_one.name} chose {p1_gesture}.')
+            print(f'{self.player_two.name} chose {p2_gesture}.')
 
-    def choose_winner(self,):
-     gamerounds=0
-     ties=0
-     humanwins=0
-     aiwins=0
-     while (aiwins < 3 or humanwins < 3):
-     
-      print(f'{computer_player_1.name} chose {ai_choice} ')
-     if human_choice == 1 and ai_choice == computer_player_1.geastures[2]:
-       humanwins += 1
-       print(f'{human_player_1.name}' 'wins!')
-     elif human_choice == 3 and ai_choice == computer_player_1.geastures[0]:
-          aiwins += 1
-          print("computer wins")
-     elif human_choice == 2 and ai_choice == computer_player_1.geastures[0]:
-          humanwins += 1
-          print(f'{human_player_1.name}' 'wins')
-     elif human_choice == 1 and ai_choice == computer_player_1.geastures[1]:
-          aiwins += 1
-          print('computer wins')
-     elif human_choice == 2 and ai_choice == computer_player_1.geastures[3]:
-          aiwins += 1
-          print('computer wins')  
-     elif human_choice == 2 and ai_choice == computer_player_1.geastures[2]:
-          humanwins += 1
-          print(f'{human_player_1.name}' 'wins')
-     elif human_choice == 1 and ai_choice == computer_player_1.geastures[3]:
-          humanwins += 1
-          print(f'{human_player_1.name}' 'wins')               
-     elif human_choice == 4 and ai_choice == computer_player_1.geastures[1]:
-          humanwins += 1
-          print(f'{human_player_1.name}' 'wins')
-     elif human_choice == 4 and ai_choice == computer_player_1.geastures[4]:
-          humanwins += 1
-          print(f'{human_player_1.name}' 'wins')
-     elif human_choice == 3 and ai_choice == computer_player_1.geastures[4]:
-          aiwins += 1
-          print('computer wins')
-     elif human_choice == 4 and ai_choice == computer_player_1.geastures[0]:
-          aiwins += 1
-          print('computer wins')
-     elif human_choice == 4 and ai_choice == computer_player_1.geastures[3]:
-          humanwins += 1
-          print(f'{human_player_1.name}' 'wins!')
-     elif human_choice == 5 and ai_choice == computer_player_1.geastures[0]:
-          humanwins += 1
-          print(f'{human_player_1.name}' 'wins')    
-     elif human_choice == 5 and ai_choice == computer_player_1.geastures[2]:
-          humanwins += 1
-          print(f'{human_player_1.name}' 'wins')
-     elif human_choice == 5 and ai_choice == computer_player_1.geastures[1]:
-          aiwins += 1
-          print('computer wins')
-     elif human_choice == 4 and ai_choice == computer_player_1.geastures[2]:
-          aiwins += 1
-          print('computer wins')   
-     elif human_choice == 2 and ai_choice == computer_player_1.geastures[4]:
-          humanwins += 1
-          print(f'{human_player_1.name}' 'wins')
-     elif human_choice == 1 and ai_choice == computer_player_1.geastures[4]:
-          aiwins += 1
-          print('computer wins') 
-     elif human_choice == ai_choice: 
-          ties += 1 
-          print('its a tie')
-     print ("Wins: " + str(humanwins) + " " "Ties" +str(ties) + " " "Losses" + str(aiwins))
-     gamerounds += 1
-     
-    def game_status(self):
-        status = self.game_status
-        while  (humanwins < 3 or aiwins < 3):
-         status = True
-        else: status = False
-        return status      
-          
-     
-      
-
-       
-     
-
-
-
-     
-
-       
-       
-       
-       
-
-        
+            self.choose_round_winner(p1_gesture, p2_gesture)
             
-        
-            
-       
-        
-    
-        
-    
+
+    def choose_round_winner(self, p1_gesture, p2_gesture):
+        if p1_gesture == "Rock":
+            if(p2_gesture == "Rock"):
+                print("tie")
+            elif(p2_gesture == "Paper" or p2_gesture == "Spock"):
+                self.player_two.set_score()
+                print(self.player_two.name + " wins round")
+            elif(p2_gesture == "Scissors" or p2_gesture == "Lizard"):
+                self.player_one.set_score()
+                print(self.player_one.name + " wins round")
+        elif p1_gesture == "Paper":
+            if(p2_gesture == "Rock" or p2_gesture == "Spock"):
+                self.player_one.set_score()
+                print(self.player_one.name + " wins round")
+            elif(p2_gesture == "Paper"):
+                print("tie")
+            elif(p2_gesture == "Scissors" or p2_gesture == "Lizard"):
+                self.player_two.set_score()
+                print(self.player_two.name + " wins round")
+        elif p1_gesture == "Scissors":
+            if(p2_gesture == "Paper" or p2_gesture == "Lizard"):
+                self.player_one.set_score
+                print(self.player_one.name + " wins round")
+            elif(p2_gesture == "Rock" or p2_gesture == "Spock"):
+                self.player_two.set_score()
+                print(self.player_two.name +" wins")
+            elif(p2_gesture == "Scissors"):
+                print("tie")
+        elif p1_gesture == "Lizard":
+            if(p2_gesture == "Rock" or p2_gesture == "Scissors"):
+                self.player_two.set_score()
+                print(self.player_two.name +" wins round")
+            elif(p2_gesture == "Paper" or p2_gesture == "Spock"):
+                self.player_one.set_score()
+                print(self.player_one.name + " wins round")
+            elif(p2_gesture == "Lizard"):
+                print("tie")
+        elif p1_gesture == "Spock":
+            if(p2_gesture == "Rock" or p2_gesture == "Scissors"):
+                self.player_one.set_score()
+                print(self.player_one.name + " wins round")
+            elif(p2_gesture == "Paper" or p2_gesture == "Lizard"):
+                self.player_two.set_score()
+                print(self.player_two.name + " wins round")
+            elif(p2_gesture == "Spock"):
+                print("tie")
 
     
-
-    
-    
-
-    
-    
-    
-        
-        
-    
-    
-    
-        
-
-
-
-
-
-                
-        
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def get_game_winner(self):
+        if(self.player_one.score == 2):
+            print(self.player_one.name + " Wins!")
+        else:
+            print(self.player_two.name + " Wins!")
