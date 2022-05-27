@@ -5,6 +5,7 @@ class Human(Player):
         super().__init__()
         self.set_name()
         
+        
 
     def set_name(self):
         self.name = input("what's your name? ")

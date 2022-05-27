@@ -5,7 +5,7 @@ from ai import Ai
 class Game:
     def __init__(self):
         self.player_one = Human()
-        self.player_two = None
+        self.player_two = Ai()
 
 
     def run_game(self):
@@ -50,48 +50,64 @@ class Game:
         if p1_gesture == "Rock":
             if(p2_gesture == "Rock"):
                 print("tie")
+                return("Tie!")
             elif(p2_gesture == "Paper" or p2_gesture == "Spock"):
                 self.player_two.set_score()
                 print(self.player_two.name + " wins round")
+                return("P2Wins!")
             elif(p2_gesture == "Scissors" or p2_gesture == "Lizard"):
                 self.player_one.set_score()
                 print(self.player_one.name + " wins round")
+                return("P1Wins!")
         elif p1_gesture == "Paper":
             if(p2_gesture == "Rock" or p2_gesture == "Spock"):
                 self.player_one.set_score()
                 print(self.player_one.name + " wins round")
+                return("P1Wins!")
             elif(p2_gesture == "Paper"):
                 print("tie")
+                return("Tie!")
             elif(p2_gesture == "Scissors" or p2_gesture == "Lizard"):
                 self.player_two.set_score()
                 print(self.player_two.name + " wins round")
+                return("P2Wins!")
         elif p1_gesture == "Scissors":
             if(p2_gesture == "Paper" or p2_gesture == "Lizard"):
                 self.player_one.set_score
                 print(self.player_one.name + " wins round")
+                return("P1Wins!")
             elif(p2_gesture == "Rock" or p2_gesture == "Spock"):
                 self.player_two.set_score()
                 print(self.player_two.name +" wins")
+                return("P2Wins!")
             elif(p2_gesture == "Scissors"):
                 print("tie")
+                return("Tie!")
         elif p1_gesture == "Lizard":
             if(p2_gesture == "Rock" or p2_gesture == "Scissors"):
                 self.player_two.set_score()
                 print(self.player_two.name +" wins round")
+                return("P2Wins!")
             elif(p2_gesture == "Paper" or p2_gesture == "Spock"):
                 self.player_one.set_score()
                 print(self.player_one.name + " wins round")
+                return("P1Wins!")
             elif(p2_gesture == "Lizard"):
                 print("tie")
+                return("Tie!")
         elif p1_gesture == "Spock":
             if(p2_gesture == "Rock" or p2_gesture == "Scissors"):
                 self.player_one.set_score()
                 print(self.player_one.name + " wins round")
+                return("P1Wins!")
             elif(p2_gesture == "Paper" or p2_gesture == "Lizard"):
                 self.player_two.set_score()
                 print(self.player_two.name + " wins round")
+                return("P2Wins!")
             elif(p2_gesture == "Spock"):
                 print("tie")
+                return("Tie!")
+
 
     
     def get_game_winner(self):
@@ -99,3 +115,12 @@ class Game:
             print(self.player_one.name + " Wins!")
         else:
             print(self.player_two.name + " Wins!")
+    
+    
+    def test_computer_wins(self):
+        score1 = self.player_one.score 
+        score2 = self.player_two.score
+        if score2 > score1:
+            return True
+        elif  score2< score1:
+                return False
